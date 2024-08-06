@@ -12,9 +12,10 @@ import time
 import pandas as pd
 
 # %%
-driveName = r"/dev/sdf"  # Change this to the correct drive
-videoFileName = "/home/dprotter/Downloads/example" + time.strftime("%Y%m%d-%H%M%S") # Video name will be [videoFileName][timestamp].avi
-
+driveName = r"/dev/sdd"  # Change this to the correct drive
+videoFileName = "/home/david/Downloads/" + time.strftime("%Y%m%d-%H%M%S") # Video name will be [videoFileName][timestamp].avi
+animal = 7090
+scope = 2
 # Read Data Sectors
 saveVideo = True
 plotHeaderValues = True
@@ -111,7 +112,7 @@ battery_voltage_div = 5
 ADC_reference = 1.1
 
 if saveVideo is True:
-    out = cv2.VideoWriter(videoFileName + '_scope_1_scan_test_7142'+'.avi', cv2.VideoWriter_fourcc(*'GREY'), 
+    out = cv2.VideoWriter(videoFileName + f'_scope_{scope}_{animal}'+'.avi', cv2.VideoWriter_fourcc(*'GREY'), 
                         10.0, (configSectorData[CONFIG_BLOCK_WIDTH_POS], configSectorData[CONFIG_BLOCK_HEIGHT_POS] ), 
                         isColor=False)
 
@@ -270,5 +271,3 @@ get_rows = headerData.head(40)
 print(get_rows)
 if displayVideo is True:
     cv2.destroyWindow('Video')
-
-
