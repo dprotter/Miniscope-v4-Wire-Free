@@ -11,6 +11,8 @@ import cv2
 import time
 import pandas as pd
 
+
+
 # %%
 driveName = r"/dev/sdd"  # Change this to the correct drive
 videoFileName = "/home/david/Downloads/" + time.strftime("%Y%m%d-%H%M%S") # Video name will be [videoFileName][timestamp].avi
