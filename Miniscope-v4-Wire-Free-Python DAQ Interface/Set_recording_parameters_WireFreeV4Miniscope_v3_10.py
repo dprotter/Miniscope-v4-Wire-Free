@@ -15,7 +15,7 @@ import time
 
 #driveName = r"\\.\PhysicalDrive2"  # Change this to the correct drive. Run Get-PhysicalDisk on Powershell to know the drive number
 
-driveName = r"/dev/sdf"
+driveName = r"/dev/sdd"
 
 # SD Card sector information
 headerSector =          1022 # Holds user settings to configure Miniscope and recording
@@ -47,8 +47,12 @@ HEADER_ewlStepTime_POS =    15
 
 #v4 Miniscope mode
 
-MINISCOPE_SCAN_MODE = True 
+MINISCOPE_SCAN_MODE = False 
 
+if MINISCOPE_SCAN_MODE:
+    check_user_scan = input('flashing is set up for scan mode. is that what you want? y/n')
+    if not check_user_scan == 'y':
+        print('user requests exit to change out of scan mode')
 # %%
 import os 
 os.system('sudo')
@@ -98,9 +102,9 @@ gain = 3                       # Gain 1= 1, Gain 2= 2, Gain 3= 4
 led = 30                        # 0 to 100 (0 = LED off)
 frame_rate = 20                # In FPS
 battery_cutoff = 3425          # Battery level (millivolts)
-delay_start = 1                # In seconds
-recording_length = 3600          # Recording length (in seconds)
-ewl_pos = 110                   # EWL range= 1 to 255 (0 = EWL off)
+delay_start = 0                # In seconds
+recording_length = 600          # Recording length (in seconds)
+ewl_pos = 160                   # EWL range= 1 to 255 (0 = EWL off)
 
 #Settings for scan mode
 
@@ -165,6 +169,3 @@ len(parameters)  #We check that we are writing 512 bytes (size of a sector)
 f.close()
 
 # %%
-
-
-
