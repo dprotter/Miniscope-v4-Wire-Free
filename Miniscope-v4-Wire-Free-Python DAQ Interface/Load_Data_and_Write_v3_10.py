@@ -12,12 +12,12 @@ import time
 import pandas as pd
 
 # %%
-driveName = r"/dev/sdd"  # Change this to the correct drive
-videoFileName = "/home/david/Downloads/" + time.strftime("%Y%m%d-%H%M%S") # Video name will be [videoFileName][timestamp].avi
-animal = 7090
+driveName = r"/dev/sdf"  # Change this to the correct drive
+videoFileName = "/home/dprotter/Downloads/" + time.strftime("%Y%m%d-%H%M%S") # Video name will be [videoFileName][timestamp].avi
+animal = 'battery80mah'
 scope = 2
 # Read Data Sectors
-saveVideo = True
+saveVideo = False
 plotHeaderValues = True
 displayVideo = False
 batteryLog = True
@@ -246,7 +246,7 @@ headerData = pd.DataFrame(header, columns = columns_name)
 
 # %%
 csv_data = headerData.to_csv()
-with open(videoFileName + '.csv', 'w') as csv_file:
+with open(videoFileName + f'_scope_{scope}_{animal}'+ '.csv', 'w') as csv_file:
     headerData.to_csv(path_or_buf=csv_file,index=False, lineterminator='\n')
 
 # %%

@@ -15,7 +15,7 @@ import time
 
 #driveName = r"\\.\PhysicalDrive2"  # Change this to the correct drive. Run Get-PhysicalDisk on Powershell to know the drive number
 
-driveName = r"/dev/sdd"
+driveName = r"/dev/sdf"
 
 # SD Card sector information
 headerSector =          1022 # Holds user settings to configure Miniscope and recording
@@ -99,12 +99,12 @@ parameters = np.zeros(sectorSize, dtype=np.uint8)
 # We have to multiply the index by 4 so they can be 32 bit long (4*byte = 32 bits)
 
 gain = 3                       # Gain 1= 1, Gain 2= 2, Gain 3= 4
-led = 30                        # 0 to 100 (0 = LED off)
+led = 15                        # 0 to 100 (0 = LED off)
 frame_rate = 20                # In FPS
-battery_cutoff = 3425          # Battery level (millivolts)
+battery_cutoff = 3200          # Battery level (millivolts)
 delay_start = 0                # In seconds
-recording_length = 600          # Recording length (in seconds)
-ewl_pos = 160                   # EWL range= 1 to 255 (0 = EWL off)
+recording_length = 3600         # Recording length (in seconds)
+ewl_pos = 110                   # EWL range= 1 to 255 (0 = EWL off)
 
 #Settings for scan mode
 
